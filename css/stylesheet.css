@@ -59,7 +59,7 @@ img {
 }
 
 .button {
-  background-image: url(../img/button.pdf);
+  background-image: url(../img/button.png);
   background-size: 100% 100%;
   text-align: center;
   display: table;
@@ -104,7 +104,7 @@ img {
   width: 40px;
   left: 10px;
   top: 10px;
-  background-image: url(../img/cross.pdf);
+  background-image: url(../img/cross.png);
   background-size: 100% 100%;
 }
 
@@ -114,7 +114,7 @@ img {
   width: 40px;
   left: 1030px;
   top: 570px;
-  background-image: url(../img/prev.pdf);
+  background-image: url(../img/prev.png);
   background-size: 100% 100%;
   display: none;
   cursor: pointer;
@@ -127,7 +127,7 @@ img {
   width: 40px;
   left: 1100px;
   top: 570px;
-  background-image: url(../img/next.pdf);
+  background-image: url(../img/next.png);
   background-size: 100% 100%;
   display: block;
   cursor: pointer;

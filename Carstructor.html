@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Carstructor</title>
+	<title>demo</title>
 	<script type="text/javascript" src="js/decomp.js"></script>
-	<script type="text/javascript" src="js/matter.js"></script>
+	<script type="text/javascript" src="js/matter.min.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
@@ -39,29 +39,30 @@
 			'width': '300px',
 			'height': '130px',
 		}).click(function() {
-			$("<div class='helper'><div id='closeHelper' class='close'></div><div class='prev'></div><div class='next'></div><div class='helperContent'></div></div>").appendTo($('#canvas')).animate({'top': '40px'}, 300).data('page', 0);
-			$('#closeHelper').click(function() {
-				$(".helper").animate({'top': '1040px'}, 300);
-			});
-			// next & prev button
-			$('.next').click(function() {
-				$('.helper').data('page', $('.helper').data('page') + 1);
-				// if last page, hide 'next' button
-				if ($('.helper').data('page') == 5) {
-					$(this).css({'display': 'none'});
-				}
-				$('.prev').css({'display': 'block'});
-				$('.helperContent').css({'background-image': 'url(./img/help' + ($('.helper').data('page') + 1) + '.png)'});
-			});
-			$('.prev').click(function() {
-				$('.helper').data('page', $('.helper').data('page') - 1);
-				// if first page, hide 'prev' button
-				if ($('.helper').data('page') == 0) {
-					$(this).css({'display': 'none'});
-				}
-				$('.next').css({'display': 'block'});
-				$('.helperContent').css({'background-image': 'url(./img/help' + ($('.helper').data('page') + 1) + '.png)'});
-			});
+			$(".helper").animate({'top': '40px'}, 300);
+		});
+		$("<div class='helper'><div id='closeHelper' class='close'></div><div class='prev'></div><div class='next'></div><div class='helperContent'></div></div>").appendTo($('#canvas')).data('page', 0);
+		$('#closeHelper').click(function() {
+			$(".helper").animate({'top': '1040px'}, 300);
+		});
+		// next & prev button
+		$('.next').click(function() {
+			$('.helper').data('page', $('.helper').data('page') + 1);
+			// if last page, hide 'next' button
+			if ($('.helper').data('page') == 5) {
+				$(this).css({'display': 'none'});
+			}
+			$('.prev').css({'display': 'block'});
+			$('.helperContent').css({'background-image': 'url(./img/help' + ($('.helper').data('page') + 1) + '.png)'});
+		});
+		$('.prev').click(function() {
+			$('.helper').data('page', $('.helper').data('page') - 1);
+			// if first page, hide 'prev' button
+			if ($('.helper').data('page') == 0) {
+				$(this).css({'display': 'none'});
+			}
+			$('.next').css({'display': 'block'});
+			$('.helperContent').css({'background-image': 'url(./img/help' + ($('.helper').data('page') + 1) + '.png)'});
 		});
 	}
 
@@ -173,7 +174,7 @@
 			}
 		}
 		// this is the first certain box that already placed on the board
-		blocks[4][5].data('used', true).data('obj', 1).append($("<img src='img/wood.pdf' />"))
+		blocks[4][5].data('used', true).data('obj', 1).append($("<img src='img/wood.png' />"))
 		$('<div id="start_engine" class="button"><span>Go<span></div>').appendTo("#canvas").css({
 			'left': '860px',
 			'top': '600px',
@@ -416,7 +417,7 @@
 						sprite: {
 					 		xScale: 0.11,
 							yScale: 0.11,
-							texture: './img/wood.pdf',
+							texture: './img/wood.png',
 						}
 					}
 				});
@@ -444,7 +445,7 @@
 						sprite: {
 							xScale: 0.11,
 							yScale: 0.11,
-							texture: './img/wheel.pdf',
+							texture: './img/wheel.png',
 						}
 					}
 				}
@@ -484,7 +485,7 @@
 						sprite: {
 							xScale: 0.11,
 							yScale: 0.11,
-							texture: './img/balloon.pdf',
+							texture: './img/balloon.png',
 						}
 					}
 				}
@@ -535,7 +536,7 @@
 						sprite: {
 							xScale: 0.11,
 							yScale: 0.11,
-							texture: './img/screw_1.pdf',
+							texture: './img/screw_1.png',
 						}
 					}
 				})
@@ -591,7 +592,7 @@
 						sprite: {
 							xScale: 0.11,
 							yScale: 0.11,
-							texture: './img/rocket_1.pdf',
+							texture: './img/rocket_1.png',
 						}
 					}
 				})
@@ -718,14 +719,14 @@
 					status.rocketleft = 1;
 					for (var i = 0; i < r.length; i++) {
 						if (r[i].dir == 3) {
-							r[i].render.sprite.texture = './img/rocket_2.pdf';
+							r[i].render.sprite.texture = './img/rocket_2.png';
 						}											// set texture for lit rockets
 					}
 					setTimeout(function() {							// set call back to 
 						status.rocketleft = -1;						// 		set texture back
 						for (var i = 0; i < r.length; i++) {
 							if (r[i].dir == 3) {
-								r[i].render.sprite.texture = './img/rocket_1.pdf';
+								r[i].render.sprite.texture = './img/rocket_1.png';
 							}
 						}
 					}, config.ROCKET_LAUNCH_TIME);
@@ -735,14 +736,14 @@
 					status.rocketright = 1;
 					for (var i = 0; i < r.length; i++) {
 						if (r[i].dir == 1) {
-							r[i].render.sprite.texture = './img/rocket_2.pdf';
+							r[i].render.sprite.texture = './img/rocket_2.png';
 						}
 					}
 					setTimeout(function() {
 						status.rocketright = -1;
 						for (var i = 0; i < r.length; i++) {
 							if (r[i].dir == 1) {
-								r[i].render.sprite.texture = './img/rocket_1.pdf';
+								r[i].render.sprite.texture = './img/rocket_1.png';
 							}
 						}
 					}, config.ROCKET_LAUNCH_TIME);
@@ -752,14 +753,14 @@
 					status.rocketup = 1;
 					for (var i = 0; i < r.length; i++) {
 						if (r[i].dir == 0) {
-							r[i].render.sprite.texture = './img/rocket_2.pdf';
+							r[i].render.sprite.texture = './img/rocket_2.png';
 						}
 					}
 					setTimeout(function() {
 						status.rocketup = -1;
 						for (var i = 0; i < r.length; i++) {
 							if (r[i].dir == 0) {
-								r[i].render.sprite.texture = './img/rocket_1.pdf';
+								r[i].render.sprite.texture = './img/rocket_1.png';
 							}
 						}
 					}, config.ROCKET_LAUNCH_TIME);
@@ -769,14 +770,14 @@
 					status.rocketdown = 1;
 					for (var i = 0; i < r.length; i++) {
 						if (r[i].dir == 2) {
-							r[i].render.sprite.texture = './img/rocket_2.pdf';
+							r[i].render.sprite.texture = './img/rocket_2.png';
 						}
 					}
 					setTimeout(function() {
 						status.rocketdown = -1;
 						for (var i = 0; i < r.length; i++) {
 							if (r[i].dir == 2) {
-								r[i].render.sprite.texture = './img/rocket_1.pdf';
+								r[i].render.sprite.texture = './img/rocket_1.png';
 							}
 						}
 					}, config.ROCKET_LAUNCH_TIME);
@@ -930,7 +931,7 @@
 							y:  -config.FAN_FORCE * cos
 						});
 					if (status.fancount == 0) {
-						f[i].render.sprite.texture = './img/screw_' + (status.fanspritecount + 1) + '.pdf';
+						f[i].render.sprite.texture = './img/screw_' + (status.fanspritecount + 1) + '.png';
 					}
 				} 
 			}
@@ -958,13 +959,13 @@
       	</div>
     </div>
     <div style="display:none;">
-    	<div id="obj1" class="objs"><img src="img/wood.pdf" alt="wood" /></div>
-    	<div id="obj2" class="objs"><img src="img/screw.pdf" alt="screw" /></div>
-    	<div id="obj3" class="objs"><img src="img/wheel.pdf" alt="wheel" /></div>
-    	<div id="obj4" class="objs"><img src="img/balloon.pdf" alt="balloon" /></div>
-    	<div id="obj5" class="objs"><img src="img/rocket_1.pdf" alt="rocket" /></div>
-    	<div id="obj6" class="objs"><img src="img/clockwise.pdf" alt="clockwise" /></div>
-    	<div id="obj7" class="objs"><img src="img/cross.pdf" alt="cross" /></div>
+    	<div id="obj1" class="objs"><img src="img/wood.png" alt="wood" /></div>
+    	<div id="obj2" class="objs"><img src="img/screw.png" alt="screw" /></div>
+    	<div id="obj3" class="objs"><img src="img/wheel.png" alt="wheel" /></div>
+    	<div id="obj4" class="objs"><img src="img/balloon.png" alt="balloon" /></div>
+    	<div id="obj5" class="objs"><img src="img/rocket_1.png" alt="rocket" /></div>
+    	<div id="obj6" class="objs"><img src="img/clockwise.png" alt="clockwise" /></div>
+    	<div id="obj7" class="objs"><img src="img/cross.png" alt="cross" /></div>
     </div>
 </body>
 </html>
